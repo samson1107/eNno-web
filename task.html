@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eNno</title>
+    <link href="favicon.png" rel="icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+
+<script type="text/javascript">
+      //  window.addEventListener("resize", function() {
+      //    "use strict"; window.location.reload(); 
+      //  });
+      
+      
+        document.addEventListener("DOMContentLoaded", function(){
+              
+      
+            /////// Prevent closing from click inside dropdown
+          document.querySelectorAll('.dropdown-menu').forEach(function(element){
+            element.addEventListener('click', function (e) {
+              e.stopPropagation();
+            });
+          })
+      
+      
+      
+          // make it as accordion for smaller screens
+          if (window.innerWidth < 992) {
+      
+            // close all inner dropdowns when parent is closed
+            document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
+              everydropdown.addEventListener('hidden.bs.dropdown', function () {
+                // after dropdown is hidden, then find all submenus
+                  this.querySelectorAll('.submenu').forEach(function(everysubmenu){
+                    // hide every submenu as well
+                    everysubmenu.style.display = 'none';
+                  });
+              })
+            });
+            
+            document.querySelectorAll('.dropdown-menu a').forEach(function(element){
+              element.addEventListener('click', function (e) {
+          
+                  let nextEl = this.nextElementSibling;
+                  if(nextEl && nextEl.classList.contains('submenu')) {  
+                    // prevent opening link if link needs to open dropdown
+                    e.preventDefault();
+                    console.log(nextEl);
+                    if(nextEl.style.display == 'block'){
+                      nextEl.style.display = 'none';
+                    } else {
+                      nextEl.style.display = 'block';
+                    }
+      
+                  }
+              });
+            })
+          }
+          // end if innerWidth
+      
+        }); 
+</script>
+
+</head>
+<body>
+   <!--navbar starts--> 
+   <section>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">eNno</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+          <div>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" style="color:#16df7e">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#service">Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#portfolio">Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#team">Team</a>
+              </li>
+<li class="nav-item dropdown">
+              <a class="nav-link" href="#" data-bs-toggle="dropdown">Dropdown<i class="fa-solid fa-angle-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"> Dropdown item 1 </a></li>
+                
+                <li class="nav-item dropdown"><a class="dropdown-item Deep-Dropdown nav-link" data-bs-toggle="dropdown" href="#"> Deep Dropdown<i class="fa-solid fa-angle-right"></i> </a>
+                  <ul class="submenu dropdown-menu">
+                    <li class="deep"><a class="dropdown-item" href="#">Deep Dropdown 1</a></li>
+                    <li class="deep"><a class="dropdown-item" href="#">Deep Dropdown 2</a></li>
+                    <li class="deep"><a class="dropdown-item" href="#">Deep Dropdown 3</a></li>
+                    <li class="deep"><a class="dropdown-item" href="#">Deep Dropdown 4</a></li>
+                  </ul>
+                </li>
+                
+                <li><a class="dropdown-item" href="#"> Dropdown item 3 </a></li>
+                <li><a class="dropdown-item" href="#"> Dropdown item 4 </a></li>
+                </ul>
+            </li>
+
+<li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+            <a href="#"><button type="button" class="btn btn-primary start">Get Started</button></a>
+          </div>
+          </div>
+        </div>
+      </nav>
+   </section>
+   <!--navbar ends-->
+   <!--about starts--> 
+  <section>
+    <div class="container" id="about">
+        <div class="row">
+        <div class="col-md-6 about">
+            <h1 class="about1">Elegant and creative <br>solutions</h1><br>
+            <h3 class="about2">We are team of talented designers making<br> websites with Bootstrap</h3><br>
+
+            <div class="d-flex">
+            <a hre="#"><button type="button" class="btn  mx-3 get-btn">Get Started</button></a>
+            <div class="watch">
+            <i class="fa-regular fa-circle-play"></i><span class="pl-3">Watch Video</span>
+        </div>
+        </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <img src="team.jpg" class="team">
+        </div>
+    </div>
+    </div>
+  </section>
+   <!--about ends-->
+
+   <!--card starts-->
+   <section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" >
+                <div class="card p-3">
+                <i class="fa-solid fa-laptop my-3"></i>
+                <h5 class="py-3">Lorem Ipsum</h5>
+                <p class="para">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            </div>
+        </div>
+
+        <div class="col-md-4" >
+            <div class="card p-3">
+            <i class="fa-solid fa-laptop my-3"></i>
+            <h5 class="py-3">Dolor Sitema</h5>
+            <p class="para">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+        </div>
+    </div>
+
+    <div class="col-md-4" >
+        <div class="card p-3">
+        <i class="fa-solid fa-laptop my-3"></i>
+        <h5 class="py-3">Sed ut perspiciatis</h5>
+        <p class="para">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat <br>nulla pariatur</p>
+    </div>
+</div>
+        </div>
+    </div>
+   </section>
+    <!--card ends-->
+
+
+
+   <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="gang.jpg" class="gang">
+        </div><br>
+        <div class="col-md-6 A_bout">
+          <h3 class="A_bout1">Voluptatem dignissimos provident quasi <br> corporis voluptates</h3>
+          <p class="A_bout2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore magna aliqua.</p><br>
+          <i class="fa-regular fa-circle-check"></i><span class=list>Ullamco laboris nisi ut aliquip ex ea commodo consequat</span><br><br>
+          <i class="fa-regular fa-circle-check"></i><span class=list>Duis aute irure dolor in reprehenderit in voluptate velit</span><br><br>
+          <i class="fa-regular fa-circle-check"></i><span class=list>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute <br>irure dolor in reprehenderit in voluptate trideta storacalaperda</span>
+          <p class="para">Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure <br>dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla<br> pariatur.</p>
+          <br><br>
+        </div>
+        <div class="container_number">
+          <div class="row">
+            <div class="col-lg-3">
+              <h1>232</h1>
+              <p>Clients</p>
+            </div>
+            <div class="col-lg-3">
+              <h1>521</h1>
+              <p>Projects</p>
+            </div>
+            <div class="col-lg-3">
+              <h1>1463</h1>
+              <p>Hours of Support</p>
+            </div>
+            <div class="col-lg-3">
+              <h1>15</h1>
+              <p>Hard Workers</p>
+            </div>
+          </div>
+        </div>
+   </section>
+   <!--services start-->
+  <section class="service" id="service">
+    <div class="container sec">
+      <h1 class="behind">SERVICES</h1>
+      <h3 class="front">SERVICES</h3>
+      <p class="spara">Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+    <div class="row">
+      <div class="col-md-4" >
+          <div class="card p-3" style="background-color: white;">
+            <i class="fa-brands fa-dribbble my-3 aa"></i>
+          <h5 class="para11">Lorem Ipsum</h5>
+          <p class="para1a">Voluptatum deleniti atque corrupti quos<br> dolores et quas molestias excepturi</p>
+      </div>
+  </div>
+
+  <div class="col-md-4" >
+      <div class="card p-3"style="background-color: white;" >
+        <i class="fa-regular fa-file-lines my-3 aa"></i>
+      <h5 class="para11">Sed ut perspiciatis</h5>
+      <p class="para1a">Duis aute irure dolor in reprehenderit in <br>voluptate velit esse cillum dolore</p>
+  </div>
+</div>
+
+<div class="col-md-4" >
+  <div class="card p-3"style="background-color: white;">
+    <i class="fas fa-tachometer-alt my-3 aa"></i>
+  <h5 class="para11">Magni Dolores</h5>
+  <p class="para1a">Excepteur sint occaecat cupidatat non proident,<br> sunt in culpa qui officia</p>
+</div>
+</div>
+<div class="col-md-4  mt-5" >
+  <div class="card p-3" style="background-color: white;">
+    <i class="fa-solid fa-earth-americas my-3 aa"></i>
+  <h5 class="para11">Nemo Enim</h5>
+  <p class="para1a">At vero eos et accusamus et iusto odio<br> dignissimos ducimus qui blanditiis</p>
+</div>
+</div>
+<div class="col-md-4 mt-5" >
+  <div class="card p-3" style="background-color: white;">
+    <i class="fas fa-desktop my-3 aa"></i>
+  <h5 class="para11">Dele cardo</h5>
+  <p class="para1a">Quis consequatur saepe eligendi voluptatem <br>consequatur dolor consequuntur</p>
+</div>
+</div>
+<div class="col-md-4 mt-5" >
+  <div class="card p-3" style="background-color: white;">
+    <i class="fas fa-archway my-3 aa"></i>
+  <h5 class="para11">Divera don</h5>
+  <p class="para1a">Modi nostrum vel laborum. Porro fugit error sit minus<br> sapiente sit aspernatur</p>
+</div>
+</div>
+  </div>
+</div>
+</section>
+   <!--services ends-->
+
+   <!--portfolio starts-->
+    <section class="port" id="portfolio">
+      <div class="container port">
+        <h1 class="behind">PORTFOLIO</h1>
+        <h3 class="front">PORTFOLIO</h3>
+        <p class="spara">Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+       <ul class="nav nav-tab d-flex justify-content-center  pb-1 tabs">
+        <li class="nav-item">
+          <a class=" px-3 menu  active">ALL</a>
+          
+        </li>
+        <li class="nav-item">
+          <a class=" px-3 menu tablink1">APP</a>
+        </li>
+        <li class="nav-item">
+          <a class=" px-3 menu tablink1">CARD</a>
+        </li>
+        <li class="nav-item">
+          <a class=" px-3 menu tablink1">WEB</a>
+        </li>
+       </ul>
+
+       <div class="row tabcontent" id="all">
+        <div class="col-lg-4">
+          <div class="row img1 py-3">
+            <img src="protfolio.jpg" width="100%">
+            <div class="pop">
+              <div class="d-flex justify-content-between p-2"> 
+                <div class="app1 d-block">
+                  <h5>App1</h5>
+                  <p>App</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-link"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row img6 py-3">
+            <img src="proto-6.jpg" width="100%">
+          <div class="pop">
+            <div class="d-flex justify-content-between p-2"> 
+              <div class="app1 d-block">
+                <h5>App3</h5>
+                <p>App</p>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-plus"></i>
+                <i class="fa-solid fa-link"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="row img2 py-3">
+            <img src="proto-2.jpg" width="100%">
+            <div class="pop">
+              <div class="d-flex justify-content-between p-2"> 
+                <div class="app1 d-block">
+                  <h5>Web3</h5>
+                  <p>Web</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-link"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row img5 py-3">
+            <img src="proto-5.jpg" width="100%">
+            <div class="pop">
+              <div class="d-flex justify-content-between p-2"> 
+                <div class="app1 d-block">
+                  <h5>Web2</h5>
+                  <p>Web</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-link"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row img9 py-3">
+            <img src="proto-9.jpg" width="100%">
+            <div class="pop">
+              <div class="d-flex justify-content-between p-2"> 
+                <div class="app1 d-block">
+                  <h5>Web3</h5>
+                  <p>Web</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-link"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-lg-4">
+          <div class="row img3 py-3">
+            <img src="proto-3.jpg" width="100%">
+            <div class="pop">
+              <div class="d-flex justify-content-between p-2"> 
+                <div class="app1 d-block">
+                  <h5>App2</h5>
+                  <p>App</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-link"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row img4 py-3">
+            <img src="proto-4.jpg" width="100%">
+            <div class="pop">
+              <div class="d-flex justify-content-between p-2"> 
+                <div class="app1 d-block">
+                  <h5>Card2</h5>
+                  <p>Card</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-link"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row img7 py-3">
+            <img src="proto-7.jpg" width="100%">
+            <div class="pop">
+              <div class="d-flex justify-content-between p-2"> 
+                <div class="app1 d-block">
+                  <h5>Card1</h5>
+                  <p>Card</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-link"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row img8 py-3">
+            <img src="proto-8.jpg" width="100%">
+            <div class="pop">
+              <div class="d-flex justify-content-between p-2"> 
+                <div class="app1 d-block">
+                  <h5>Card3</h5>
+                  <p>Card</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-link"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+       </div>
+   </section>
+  
+   <!--portfolio ends-->
+
+   <!--testimonal starts-->
+   <section class="testimonals">
+    <div class="container test">
+      <h1 class="behind">TESTIMONALS</h1>
+      <h3 class="front">TESTIMONALS</h3>
+      <p class="spara">Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+
+     <div class="owl-carousel owl-theme">
+      <div  class="container main-box">
+        <div class="wh-card">
+          <p class="text-para">Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.Accusantium quam, ultricies eget id, aliquam eget nibh et.Maecen aliquam, risus at semper.</p>
+        </div>
+        <div class="prof">
+          <img src="saul.jpg">
+          <h4 class="textpara1">Saul Goodman</h4>
+          <p class="textpara1a">Ceo & Founder</p>
+        </div>
+      </div>
+
+      <div  class="container main-box">
+        <div class="wh-card">
+          <p class="text-para">Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</p>
+        </div>
+        <div class="prof">
+          <img src="sara.jpg">
+          <h4 class="textpara1">Sara Wilsson</h4>
+          <p class="textpara1a">Designer</p>
+        </div>
+      </div>
+
+      <div  class="container main-box">
+        <div class="wh-card">
+          <p class="text-para">Enim nisi quem export duis labore<br> cillum quae magna enim sint quorum <br>nulla quem veniam duis minim tempor <br>labore quem eram duis noster aute<br> amet eram fore quis sint minim.</p>
+        </div>
+        <div class="prof">
+          <img src="jana.jpg">
+          <h4 class="textpara1" >Jena Karlis</h4>
+          <p class="textpara1a">Store Owner</p>
+        </div>
+      </div>
+
+      <div  class="container main-box">
+        <div class="wh-card">
+          <p class="text-para">Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</p>
+        </div>
+        <div class="prof">
+          <img src="matt.jpg">
+          <h4 class="textpara1">Matt Brandon</h4>
+          <p class="textpara1a">FreeLancer</p>
+        </div>
+      </div>
+
+      <div  class="container main-box">
+        <div class="wh-card">
+          <p class="text-para">Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+          </p>
+        </div>
+        <div class="prof">
+          <img src="john.jpg">
+          <h4 class="textpara1">John Larson</h4>
+          <p class="textpara1a">Entreprenur</p>
+        </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!--call to action starts-->
+   <section>
+    <div class="container-fluid call_action">
+      <div class="call-action">
+      <h4 class="call">Call To Action</h4>
+      <p class="call1">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,<br> sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <a href=#><button type="submit" class="btn start1">CALL TO ACTION</button></a>
+      </div>
+    </div>
+   </section>
+   <!--call to action ends-->
+   <!--team starts-->
+   <section class="teams" id="team">
+    <div class="container teams1">
+      <h1 class="behind">TEAM</h1>
+      <h3 class="front">TEAM</h3>
+      <p class="spara">Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="bg-white p-3">
+          <img src="walter.jpg" width="100%">
+          <center>
+          <h5 class="teama">Walter White</h5>
+          <p class="teamb">Chief Executive Officer</p>
+          <p class="teamc">Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut</p>
+          <div class="iconset">
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+          </div>
+          </center>
+        </div>
+        </div>
+        
+
+        <div class="col-md-4">
+          <div class="bg-white p-3">
+          <img src="sarah.jpg" width="100%">
+          <center>
+          <h5 class="teama">Sarah Jhinson</h5>
+          <p class="teamb">Product Manager</p>
+          <p class="teamc">Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus</p>
+          <div class="iconset">
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+          </div>
+          </center>
+        </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="bg-white p-3">
+          <img src="willam.jpg" width="100%">
+          <center>
+          <h5 class="teama">William Anderson</h5>
+          <p class="teamb">CTO</p>
+          <p class="teamc">Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara</p>
+          <div class="iconset">
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+          </div>
+          </center>
+        </div>
+        </div>
+      </div>
+    </div>
+
+   </section>
+   <!--team ends-->
+   <!--contact starts-->
+   <section class= "contact" id="contact">
+    <div class="container conct">
+      <h1 class="behind">CONTACT</h1>
+      <h3 class="front">CONTACT</h3>
+      <p class="spara">Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="details">
+            <div class="row detailbox">
+              <div class="col-md-2 iconbox">
+                <div class="iconholder">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+              </div>
+              <div class="col-md-10">
+                <h3 class="contacta">Location</h3>
+                <p class="contactb">newdan colony ,ambarst street,America!</p>
+              </div>
+              <div class="col-md-2 iconbox">
+                <div class="iconholder">
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+              </div>
+              <div class="col-md-10">
+                <h3 class="contacta">Email:</h3>
+                <p class="contactb">Thamboy30@gmail.com</p>
+              </div>
+              <div class="col-md-2 iconbox">
+                <div class="iconholder">
+                  <i class="fa-solid fa-mobile"></i>
+                </div>
+              </div>
+              <div class="col-md-10">
+                <h3 class="contacta">Call:</h3>
+                <p class="contactb">+1 6385727306</p>
+              </div>
+              
+
+            </div>
+
+            <div class="row">
+              <div class="map p-3">
+              <iframe class="map-width" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7892.1897681878545!2d76.94822823928178!3d8.490155077506213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bba5e411a9e9%3A0xd91a25e733df7162!2sThampanoor%2C%20Thiruvananthapuram%2C%20Kerala!5e0!3m2!1sen!2sin!4v1705959823365!5m2!1sen!2sin"  height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-7">
+        <div class="details">
+          <form>
+            <div class="row">
+              
+              <div class="col-md-6">
+                <label>Your Name</label>
+                <input class="form-control" type="text">
+              </div>
+            <div class="col-md-6">
+              <label>Your Email</label>
+              <input class="form-control" type="email">
+            </div>
+            <div class="col-md-12">
+              <label>Subject</label>
+              <input class="form-control" type="text">
+            </div>
+            <div class="col-md-12">
+              <label>Message</label>
+              <textarea class= "form-control" rows="10"></textarea>
+            </div>
+            </div>
+            <center>
+            <button type="submit" class="btn  my-3 snd">Send Message</button>
+          </center>
+          </form>
+        </div>
+      </div>
+    </div>
+   </section>
+   <!--footer starts-->
+   <section>
+    <div class="container-fluid footer">
+      <h3 class="footertxt">eNno</h3>
+      <p class="footertxta">Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi<br> placeat.</p>
+      <center>
+      <div class="d-flex ftrform">
+      <input type="text" class="form-control fotrfrm" placeholder="Enter your Email">
+      <button type="button" class="btn  sub">Subscribe</button>    
+    </center>
+    <center>
+    <div class="ftricon">
+      <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-skype"></i>
+        <i class="fa-brands fa-linkedin"></i>
+    </div>
+  </center>
+      
+      </div>
+    </div>
+   </section>
+   
+   <div class="arrow">
+    <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
+   </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+    <script>
+      $('.owl-carousel').owlCarousel({
+    autoplay:true,
+    autoplayHoverPause:true,
+    dots:true,
+    loop:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        768:{
+            items:2,
+        },
+        992:{
+          dotsEach:2,
+          items:3
+        },
+        1400:{
+          dotsEach:1,
+            items:3
+        }
+    }
+})
+    </script>
+</body>
+</html>
+
